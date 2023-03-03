@@ -1,38 +1,172 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Russo+One');
+
+:root {
+  --primary: #FE7F9B;
+  --main-background: pink;
+  --text-area-background: rgb(253, 228, 233);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  /*outline: 1px solid red;*/
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background: var(--main-background);
+  margin: 10px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: var(--primary);
+  padding: 0 0.3rem;
+  border: 1px solid #1d2f2f;
+  font-family: Russo One;
+  font-size: 0.85rem;
+  line-height: 0.1rem;
+  letter-spacing: 0.02rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#editor {
+  max-width: 600px;
+  margin: 1.125rem auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.hidden {
+  display: none;
+}
+
+.fa-maximize {
+  margin-left: auto;
+  font-size: 1.2rem;
+}
+
+.fa-maximize:hover {
+  cursor: pointer;
+}
+
+textarea {
+  width: 100%;
+  min-height: 200px;
+  margin-bottom: -5px;
+  resize: vertical;
+  outline: none;
+  padding-left: 5px;
+  padding-top: 5px;
+  font-size: 0.875rem;
+  background-color: var(--text-area-background);
+  border-top: none;
+}
+
+.maximized {
+  width: 96%;
+  min-height: 100vh;
+  margin: auto;
+}
+
+.maximized textarea {
+  min-height: 95vh;
+  resize: none;
+}
+
+.previewWrap {
+  padding: 0 1rem;
+}
+
+#preview {
+  max-width: 800px;
+  margin: 1.125rem auto;
+  background-color: var(--text-area-background);
+  border: 1px solid #1d2f2f;
+  overflow-wrap: break-word;
+}
+
+#preview .header {
+  border: 0;
+  border-bottom: 1px solid #1d2f2f;
+}
+
+#preview h1 {
+  border-bottom: 2px solid var(--primary);
+}
+#preview h2 {
+  border-bottom: 1px solid var(--primary);
+}
+
+#preview code {
+  background: white;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+#preview pre {
+  display: block;
+  overflow: auto;
+  background: white;
+  padding: 5px;
+  line-height: 1.2;
+}
+
+#preview blockquote {
+  border-left: 3px solid var(--primary);
+  padding-left: 5px;
+  margin-left: 25px;
+}
+
+#preview table {
+  border-collapse: collapse;
+}
+#preview td,
+#preview th {
+  border: 2px solid var(--primary);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#preview img {
+  display: block;
+  max-width: 90%;
+  margin: 2rem auto;
+}
+
+@media screen and (max-width: 850px) {
+  #preview {
+    max-width: 630px;
   }
-  to {
-    transform: rotate(360deg);
+
+  #editor {
+    max-width: 550px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  body {
+    margin: 5px 0;
+  }
+
+  #editor {
+    width: 80vw;
+    margin: 0 auto;
+  }
+
+  .maximized {
+    width: 95%;
+    margin: auto;
+  }
+
+  #preview {
+    width: 90vw;
   }
 }

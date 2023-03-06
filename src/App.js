@@ -60,7 +60,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        <div id="editor" className={`${this.state.editorMaximized ? "maximized" : ""} ${this.state.previewMaximized ? "hidden" : ""}`}>
+        <div id="editor-container" className={`${this.state.editorMaximized ? "maximized" : ""} ${this.state.previewMaximized ? "hidden" : ""}`}>
           <div className="header">
             <h2>Editor</h2>
             {this.state.editorMaximized 
@@ -69,19 +69,19 @@ class App extends Component {
           </div>
           <textarea
           name="editor"
-          id="input"
+          id="editor"
           value={this.state.markdown}
           onChange={this.handleChange}
           ></textarea>
         </div>
-        <div id="preview" className={`${this.state.previewMaximized ? "maximized" : ""} ${this.state.editorMaximized ? "hidden" : ""}`}>
+        <div id="preview-container" className={`${this.state.previewMaximized ? "maximized" : ""} ${this.state.editorMaximized ? "hidden" : ""}`}>
         <div className="header">
             <h2>Previewer</h2>
             {this.state.previewMaximized 
             ? <FaCompressAlt className="fa-maximize" onClick={this.resizePreview}/>
             : <FaExpandArrowsAlt className="fa-maximize" onClick={this.resizePreview}/>}
           </div>
-          <div className="previewWrap">
+          <div id="preview" className="preview-text">
             <Preview input={this.state.markdown} />
           </div>
         </div>

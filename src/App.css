@@ -3,7 +3,7 @@
 :root {
   --primary: #FE7F9B;
   --main-background: pink;
-  --text-area-background: rgb(253, 228, 233);
+  --text-area-background: #fde4e9;
 }
 
 html {
@@ -39,7 +39,7 @@ body {
   color: white;
 }
 
-#editor {
+#editor-container {
   max-width: 600px;
   margin: 1.125rem auto;
 }
@@ -81,11 +81,11 @@ textarea {
   resize: none;
 }
 
-.previewWrap {
+.preview-text {
   padding: 0 1rem;
 }
 
-#preview {
+#preview-container {
   max-width: 800px;
   margin: 1.125rem auto;
   background-color: var(--text-area-background);
@@ -93,7 +93,7 @@ textarea {
   overflow-wrap: break-word;
 }
 
-#preview .header {
+#preview-container .header {
   border: 0;
   border-bottom: 1px solid #1d2f2f;
 }
